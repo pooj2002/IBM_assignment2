@@ -15,13 +15,19 @@ def render_signin(accountok=True):
 
 @app.route("/login", methods = ['POST'])
 def checkLogin():
-    print("helllllllllo")
     email = request.form['email']
     pwd = request.form['password']
     if (email == "ab@ab.com" and pwd == "ab"):
         return render_template("dashboard.html", user="Pooja")
     else:
         return render_signin(False)
+
+
+
+@app.route("/register")
+def register():
+    return render_template("register.html")
+
 
 if __name__ == '__main__':
     app.debug = True
